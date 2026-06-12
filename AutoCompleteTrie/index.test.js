@@ -14,7 +14,7 @@ test("addWord cat to the AutoCompleteTrie", function () {
   expect(node.endOfWord).toBeTruthy();
 });
 
-test("addWord cat to the AutoCompleteTrie", function () {
+test("findWord of AutoCompleteTrie to find added words", function () {
   let node = new AutoCompleteTrie();
   expect(Object.keys(node.children).length).toBe(0);
 
@@ -74,4 +74,22 @@ test("predictWords return array with words or empty if words don't exist ", func
   expect(arr).toEqual(["this"]);
   arr = node.predictWords("do");
   expect(arr).toEqual(["does", "doing"]);
+});
+
+test("check the flow of the whole class methods", function () {
+  let node = new AutoCompleteTrie();
+  expect(Object.keys(node.children).length).toBe(0);
+
+  node.addWord("cat");
+  expect(node.children["c"]).toBeTruthy();
+
+  node.addWord("their");
+  node.addWord("there");
+  expect(node.findWord("cat")).toBeTruthy();
+  expect(node.findWord("dog")).toBeFalsy();
+
+  expect(node.predictWords("the")).toEqual(["their", "there"]);
+  expect(() => {
+    node.addWord(98);
+  }).toThrow(TypeError);
 });
