@@ -1,0 +1,23 @@
+{
+  "name": "techtroop-fullstackmay2026-autocompletetrie",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/netanelwallach/TechTroop-FullStackMay2026-AutoCompleteTrie#readme",
+  "bugs": {
+    "url": "https://github.com/netanelwallach/TechTroop-FullStackMay2026-AutoCompleteTrie/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netanelwallach/TechTroop-FullStackMay2026-AutoCompleteTrie.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}

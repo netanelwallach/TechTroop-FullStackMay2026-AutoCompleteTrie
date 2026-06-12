@@ -1,0 +1,7 @@
+# התעלמות מתיקיית הספריות של npm
+node_modules/
+
+# התעלמות מקבצי לוג של שגיאות (אופציונלי אך מומלץ)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
