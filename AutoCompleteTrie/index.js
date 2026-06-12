@@ -7,7 +7,7 @@ class AutoCompleteTrie {
 
   addWord(word) {
     let current = this;
-
+    word = word.toLowerCase();
     for (const char of word) {
       if (!current.children[char]) {
         current.children[char] = new AutoCompleteTrie(char);
@@ -31,7 +31,18 @@ class AutoCompleteTrie {
 
   predictWords(prefix) {}
 
-  _getRemainingTree(prefix, node) {}
+  _getRemainingTree(prefix, node) {
+    let current = node;
+    for (const char of word) {
+      if (!current.children[char]) {
+        return null;
+      }
+      current = current.children[char];
+    }
+    return current;
+  }
 
   _allWordsHelper(prefix, node, allWords) {}
 }
+
+module.exports = { AutoCompleteTrie };
