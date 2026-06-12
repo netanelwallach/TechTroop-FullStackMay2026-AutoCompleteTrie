@@ -42,7 +42,15 @@ class AutoCompleteTrie {
     return current;
   }
 
-  _allWordsHelper(prefix, node, allWords) {}
+  _allWordsHelper(prefix, node, allWords) {
+    if (node.endOfWord) {
+      allWords.push(prefix);
+    }
+
+    for (const char in node.children) {
+      this._allWordsHelper(prefix + char, node.children[char], allWords);
+    }
+  }
 }
 
 module.exports = { AutoCompleteTrie };
