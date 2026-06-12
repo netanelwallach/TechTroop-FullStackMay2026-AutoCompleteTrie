@@ -59,3 +59,19 @@ test("_allWordsHelper create a words array", function () {
   node._allWordsHelper("yes", preNode, arr);
   expect(arr).toEqual([]);
 });
+
+test("predictWords return array with words or empty if words don't exist ", function () {
+  let node = new AutoCompleteTrie();
+  node.addWord("their");
+  node.addWord("there");
+  node.addWord("this");
+  node.addWord("does");
+  node.addWord("doing");
+
+  let arr = node.predictWords("hot");
+  expect(arr).toEqual([]);
+  arr = node.predictWords("thi");
+  expect(arr).toEqual(["this"]);
+  arr = node.predictWords("do");
+  expect(arr).toEqual(["does", "doing"]);
+});
