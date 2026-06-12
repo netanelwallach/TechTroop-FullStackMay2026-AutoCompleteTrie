@@ -13,3 +13,15 @@ test("addWord cat to the AutoCompleteTrie", function () {
   node = node.children["t"];
   expect(node.endOfWord).toBeTruthy();
 });
+
+test("addWord cat to the AutoCompleteTrie", function () {
+  let node = new AutoCompleteTrie();
+  expect(Object.keys(node.children).length).toBe(0);
+
+  node.addWord("cat");
+  expect(node.findWord("cat")).toBeTruthy();
+  node.addWord("dog");
+  expect(node.findWord("dog")).toBeTruthy();
+  node.addWord("category");
+  expect(node.findWord("category")).toBeTruthy();
+});
