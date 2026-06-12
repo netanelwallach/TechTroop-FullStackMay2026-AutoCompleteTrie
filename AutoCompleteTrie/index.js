@@ -33,7 +33,7 @@ class AutoCompleteTrie {
 
   _getRemainingTree(prefix, node) {
     let current = node;
-    for (const char of word) {
+    for (const char of prefix) {
       if (!current.children[char]) {
         return null;
       }

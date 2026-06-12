@@ -25,3 +25,14 @@ test("addWord cat to the AutoCompleteTrie", function () {
   node.addWord("category");
   expect(node.findWord("category")).toBeTruthy();
 });
+
+test("_getRemainingTree to get wanted node or null", function () {
+  let node = new AutoCompleteTrie();
+
+  node.addWord("cat");
+  expect(node._getRemainingTree("ca", node)).not.toBeNull();
+  expect(node._getRemainingTree("dog", node)).toBeNull();
+
+  node.addWord("category");
+  expect(node._getRemainingTree("cat", node).endOfWord).toBeTruthy();
+});
