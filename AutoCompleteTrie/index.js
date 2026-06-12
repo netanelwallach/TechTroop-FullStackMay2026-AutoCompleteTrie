@@ -5,9 +5,29 @@ class AutoCompleteTrie {
     this.endOfWord = endOfWord;
   }
 
-  addWord(word) {}
+  addWord(word) {
+    let current = this;
 
-  findWord(word) {}
+    for (const char of word) {
+      if (!current.children[char]) {
+        current.children[char] = new AutoCompleteTrie(char);
+      }
+      current = current.children[char];
+    }
+    current.endOfWord = true;
+  }
+
+  findWord(word) {
+    let current = this;
+
+    for (const char of word) {
+      if (!current.children[char]) {
+        return false;
+      }
+      current = current.children[char];
+    }
+    return current.endOfWord;
+  }
 
   predictWords(prefix) {}
 
