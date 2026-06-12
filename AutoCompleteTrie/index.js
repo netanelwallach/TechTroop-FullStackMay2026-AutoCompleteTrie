@@ -43,6 +43,10 @@ class AutoCompleteTrie {
   }
 
   _allWordsHelper(prefix, node, allWords) {
+    if (!node) {
+      return;
+    }
+
     if (node.endOfWord) {
       allWords.push(prefix);
     }
