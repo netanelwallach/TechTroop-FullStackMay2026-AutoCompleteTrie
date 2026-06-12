@@ -29,7 +29,16 @@ class AutoCompleteTrie {
     return current.endOfWord;
   }
 
-  predictWords(prefix) {}
+  predictWords(prefix) {
+    let remainingTree = this._getRemainingTree(prefix, this);
+    const words = [];
+
+    if (remainingTree) {
+      this._allWordsHelper(prefix, remainingTree, words);
+    }
+
+    return words;
+  }
 
   _getRemainingTree(prefix, node) {
     let current = node;
